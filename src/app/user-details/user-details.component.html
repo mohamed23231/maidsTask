@@ -1,0 +1,26 @@
+<!-- Show loading spinner while data is being fetched -->
+<div *ngIf="isLoading">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+
+<!-- Show user details when data is available -->
+<div *ngIf="userData" class="cardContainer">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <!-- Display user details -->
+      <mat-card-title>{{ userData.first_name }}</mat-card-title>
+      <mat-card-subtitle>{{ userData.last_name }}</mat-card-subtitle>
+      <mat-card-subtitle>{{ userData.id }}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="userData.avatar" alt="Photo of a user">
+    <mat-card-content>
+      <!-- Display user email -->
+      <mat-card-subtitle>{{ userData.email }}</mat-card-subtitle>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<!-- Back button to navigate to the user list -->
+<div class="btn-container">
+  <button routerLink="/user-list">Back</button>
+</div>

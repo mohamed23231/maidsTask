@@ -1,0 +1,41 @@
+.container{
+  width: 80%;
+  margin: auto;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+.btn-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+  }
+  .btn-container button {
+    background-color: #c2185b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-container button:hover {
+    background-color: #6a1b9a; /* Darken the color on hover */
+  }
+  
+  .example-card {
+    max-width: 400px;
+    margin: 1em;
+    cursor: pointer;
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+
+  .spacer {
+    flex: 1 1 auto;
+  }

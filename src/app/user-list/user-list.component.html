@@ -1,0 +1,36 @@
+<!-- Loading spinner while data is loading -->
+<div *ngIf="isLoading">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+
+<!-- User data section -->
+<div *ngIf="userData">
+  <!-- Toolbar with search input -->
+  <mat-toolbar color="primary">
+    <span>Users</span>
+    <span class="spacer"></span>
+    <mat-form-field>
+      <mat-label class="search">Search</mat-label>
+      <input matInput placeholder="Search for user..." type="text" [(ngModel)]="searchTerm" placeholder="Search by ID">
+    </mat-form-field>
+  </mat-toolbar>
+
+  <!-- Pagination buttons -->
+  <div class="btn-container">
+    <button *ngFor="let pageNumber of totalPages" (click)="loadPage(pageNumber)">
+      {{ pageNumber }}
+    </button>
+  </div>
+
+  <!-- User card container -->
+  <div class="container">
+    <mat-card class="example-card" *ngFor="let user of userData | search: searchTerm" [routerLink]="['/Userdetails', user.id]">
+      <mat-card-header>
+        <mat-card-title>First Name: {{ user.first_name }}</mat-card-title>
+        <mat-card-subtitle>Last Name: {{ user.last_name }}</mat-card-subtitle>
+        <mat-card-subtitle>ID: {{ user.id }}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image [src]="user.avatar" alt="User avatar">
+    </mat-card>
+  </div>
+</div>
