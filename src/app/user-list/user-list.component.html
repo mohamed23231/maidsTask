@@ -22,15 +22,20 @@
     </button>
   </div>
 
-  <!-- User card container -->
-  <div class="container">
-    <mat-card class="example-card" *ngFor="let user of userData | search: searchTerm" [routerLink]="['/Userdetails', user.id]">
-      <mat-card-header>
-        <mat-card-title>First Name: {{ user.first_name }}</mat-card-title>
-        <mat-card-subtitle>Last Name: {{ user.last_name }}</mat-card-subtitle>
-        <mat-card-subtitle>ID: {{ user.id }}</mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image [src]="user.avatar" alt="User avatar">
-    </mat-card>
+  <!-- Users List -->
+
+  <div id="article" class="articles">
+    <div class="container">
+      <div class="box-margin" *ngFor="let user of userData | search: searchTerm" [routerLink]="['/Userdetails', user.id]">
+        <div class="box">
+          <img [src]="user.avatar" alt="User avatar" />
+          <div class="content text-center">
+            <h3>{{ user.first_name }}</h3>
+            <h3>{{ user.last_name }}</h3>
+            <h3>{{ user.id }}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
